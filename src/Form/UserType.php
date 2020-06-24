@@ -26,6 +26,7 @@ class UserType extends AbstractType
             ->add('destination',  TextType::class, [
                 'label' => 'Destination :'
             ])
+            ->add('destination', DestinationType::class)
         ;
     }
 
