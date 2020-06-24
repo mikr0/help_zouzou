@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.firstname) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.destination) }}
+    <button type="submit" class="btn btn-primary">Envoyer mon form</button>
+    {{ form_end(form) }}
+
+{% endblock %}
