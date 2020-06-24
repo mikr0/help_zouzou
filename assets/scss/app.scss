@@ -8,7 +8,12 @@ body {
     background-color: lightgray;
 }
 
+
 img.travel {
    width: 400px;
     height: 400px;
 }
+
+
+@import "assets/scss/components/_navbar";
+
