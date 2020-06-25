@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ClinicRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +33,16 @@ class Clinic
      * @ORM\ManyToOne(targetEntity=Destination::class, inversedBy="clinic")
      */
     private $destination;
+
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="clinic")
+     */
+    private $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -69,6 +81,37 @@ class Clinic
     public function setDestination(?Destination $destination): self
     {
         $this->destination = $destination;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setClinic($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            // set the owning side to null (unless already changed)
+            if ($user->getClinic() === $this) {
+                $user->setClinic(null);
+            }
+        }
 
         return $this;
     }

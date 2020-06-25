@@ -49,7 +49,11 @@ class User
      * @ORM\Column(type="boolean")
      */
     private $accommodation;
-
+  
+    /**
+     * @ORM\ManyToOne(targetEntity=Clinic::class, inversedBy="users")
+     */
+    private $clinic;
 
 
     /**
@@ -107,6 +111,7 @@ class User
 
         return $this;
     }
+
 
     public function __construct()
 
@@ -230,6 +235,18 @@ class User
     public function setDeparture(?\DateTimeInterface $departure): self
     {
         $this->departure = $departure;
+
+        return $this;
+    }
+
+    public function getClinic(): ?Clinic
+    {
+        return $this->clinic;
+    }
+
+    public function setClinic(?Clinic $clinic): self
+    {
+        $this->clinic = $clinic;
 
         return $this;
     }
