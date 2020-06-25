@@ -56,8 +56,8 @@ class User
      * @ORM\Column(type="boolean")
      */
     private $support;
-  
- * @ORM\Column(type="string", length=255, nullable=true)
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
