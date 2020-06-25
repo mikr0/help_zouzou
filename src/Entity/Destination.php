@@ -39,6 +39,21 @@ class Destination
      */
     private $clinic;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $arrival;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $departure;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -132,6 +147,42 @@ class Destination
                 $clinic->setDestination(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getArrival(): ?\DateTimeInterface
+    {
+        return $this->arrival;
+    }
+
+    public function setArrival(\DateTimeInterface $arrival): self
+    {
+        $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    public function getDeparture(): ?\DateTimeInterface
+    {
+        return $this->departure;
+    }
+
+    public function setDeparture(\DateTimeInterface $departure): self
+    {
+        $this->departure = $departure;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }

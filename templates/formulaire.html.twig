@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <div class="container w-50 mt-5">
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.destination) }}
+        {{ form_row(form.vehicle) }}
+        {{ form_row(form.accommodation) }}
+        {{ form_row(form.support) }}
+        {{ form_row(form.destination.country) }}
+        {{ form_row(form.destination.location) }}
+        {{ form_row(form.destination.arrival) }}
+        {{ form_row(form.destination.departure) }}
+
+
+    <button type="submit" class="btn btn-primary float-right">Envoyer mon form</button>
+    {{ form_end(form) }}
+    </div>
+
+{% endblock %}
