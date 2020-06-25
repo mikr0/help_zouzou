@@ -1,7 +1,9 @@
 // Library
 @import "~bootstrap/scss/bootstrap";
 @import "assets/scss/boostwatch/variables";
-@import "assets/scss/boostwatch/bootswatch";
+@import "boostwatch/bootswatch";
+@import "cards";
+
 
 
 body {
