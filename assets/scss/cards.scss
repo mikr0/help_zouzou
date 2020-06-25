@@ -205,3 +205,11 @@ a.play_button:hover {
     filter: opacity(0.9);
 }
 
+.card-body-text {
+    min-height: 200px;
+}
+
+.card-body a {
+    float: right;
+    margin-bottom: 12px;
+}
