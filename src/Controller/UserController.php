@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 
+use App\Entity\Clinic;
+use App\Repository\ClinicRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,15 +15,19 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/match", name="match")
-     * @param UserRepository $repository
+     * @param UserRepository $userRepository
      * @return Response
      */
-    public function match(UserRepository $repository): Response
+    public function match(UserRepository $userRepository): Response
     {
-        $user = $repository->findAll();
+
+        $users = $userRepository->findAll();
+
 
         return $this->render('match/matching.html.twig',[
-            'user'=> $user,
+            'users'=> $users,
+
+
         ]);
     }
 

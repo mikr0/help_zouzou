@@ -39,9 +39,10 @@ li.info_list {
 
 #f1_container {
     position: relative;
+    padding: 50px;
     margin: 10px auto;
-    width: 200px;
-    height: 250px;
+    width: 430px;
+    height: 500px;
     margin-top: 2vh;
     z-index: 1;
     font-family: 'Montserrat', sans-serif;
@@ -70,6 +71,7 @@ li.info_list {
     background-blend-mode: normal,color-burn;
     border-radius: 15px;
 }
+
 .grade {
     width: 50px;
     margin-left: auto;
@@ -109,36 +111,19 @@ li.info_list {
     transform: rotateY(180deg);
     box-sizing: border-box;
     padding: 10px;
-    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+    background-image: linear-gradient(60deg, #bdc3c7
+    0%, #2c3e50 100%);
     border-radius: 15px;
 }
 .bio_titre {
     padding-bottom: 10px;
     text-align: center;
-    font-size: 12px;
+    font-size: 25px;
     font-weight: 300;
     color: white;
     border-bottom: 1px solid;
 }
-.bio {
-    text-indent: 15px;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 8px;
-    letter-spacing: 1px;
-    color: white;
-}
-.regle {
-    margin-bottom: 10px;
-    text-indent: 15px;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 8px;
-    letter-spacing: 1px;
-    color: white;
-}
+
 
 .stats_info {
     margin-top: 15px;
@@ -146,7 +131,7 @@ li.info_list {
     width: 150px;
     margin-left: auto;
     margin-right: auto;
-    font-size: 8px;
+    font-size: 9px;
     letter-spacing: 1px;
     color: white;
 }
