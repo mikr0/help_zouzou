@@ -1,6 +1,21 @@
 // Library
 @import "~bootstrap/scss/bootstrap";
+@import "assets/scss/boostwatch/variables";
+@import "boostwatch/bootswatch";
+@import "cards";
+
+
 
 body {
     background-color: lightgray;
 }
+
+
+img.travel {
+   width: 400px;
+    height: 400px;
+}
+
+
+@import "assets/scss/components/_navbar";
+

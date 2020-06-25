@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>Partagez votre trajet avec :</h1>
+    <div class=" space-between d-flex wrap justify-content-center flex-row container">
+        {% for user in users %}
+            <div id="f1_container">
+                <div id="f1_card">
+                    <div class="front face">
+                        <img class="avatar circle" src="{{ user.image }}"/>
+                    </div>
+                    <div class="back face">
+                        <h1 class="bio_titre">{{ user.name }} {{ user.firstname }}</h1>
+                        <hr>
+                        <p class="stats_info">
+                            <u>Clinic:</u> {{ user.clinic.name }} , {{ user.clinic.address }}
+                            <br/><br/>
+                            <u>Dates de voyages</u> {{ user.arrival|date("Y-m-d") }}
+                            - {{ user.departure|date("Y-m-d") }}
+                            <br/><br/>
+                            <u>Destination</u> {{ user.destination.country }}
+                            <br/><br/>
+                            <u>City</u> {{ user.destination.location }}
+                        </p>
+                        <button class="btn"> <img src="https://image.flaticon.com/icons/svg/561/561127.svg" alt="icon-messenger" width="40" height="40"> </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
