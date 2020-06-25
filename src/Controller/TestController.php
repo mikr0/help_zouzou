@@ -56,4 +56,14 @@ class TestController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/formule", name="formule")
+     * @return RedirectResponse|Response
+     */
+
+    public function formule():Response
+    {
+        return $this->render('formule.html.twig', [
+        ]);
+    }
 }

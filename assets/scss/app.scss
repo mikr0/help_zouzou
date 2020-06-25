@@ -6,7 +6,7 @@
 
 
 
-body {
+html {
     background-color: lightgray;
 }
 
@@ -15,7 +15,15 @@ img.travel {
    width: 400px;
     height: 400px;
 }
+.card-elisa {
+  box-shadow: 10px 5px 5px grey;
+  min-width: 300px;
+  max-width: 300px;
+}
 
+.card-elisa:hover {
+  box-shadow: 20px 5px 15px grey;
+}
 
 @import "assets/scss/components/_navbar";
 
