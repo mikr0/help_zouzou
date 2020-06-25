@@ -56,7 +56,20 @@ class User
      * @ORM\Column(type="boolean")
      */
     private $support;
+  
+ * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $arrival;
+
+    /**
+     * @ORM\Column(type="date", nullable=true)
+     */
+    private $departure;
 
 
     public function getVehicle(): ?bool
@@ -95,7 +108,8 @@ class User
         return $this;
     }
 
-public function __construct()
+    public function __construct()
+
     {
         $this->purpose = new ArrayCollection();
     }
@@ -180,6 +194,42 @@ public function __construct()
                 $purpose->setUser(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    public function getArrival(): ?\DateTimeInterface
+    {
+        return $this->arrival;
+    }
+
+    public function setArrival(?\DateTimeInterface $arrival): self
+    {
+        $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    public function getDeparture(): ?\DateTimeInterface
+    {
+        return $this->departure;
+    }
+
+    public function setDeparture(?\DateTimeInterface $departure): self
+    {
+        $this->departure = $departure;
 
         return $this;
     }

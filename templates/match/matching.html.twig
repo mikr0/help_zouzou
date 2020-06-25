@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1>Les profils qui vous correspondent</h1>
+    <div>
+    {% for user in user %}
+        <article class="card usa">
+
+            <div id="f1_container">
+                <div id="f1_card">
+                    <div class="front face">
+                        <img class="avatar circle" src="{{ user.image }}" />
+                    </div>
+                    <div class="back face">
+                        <h1 class="bio_titre">{{ user.name }} {{ user.firstname }}</h1>
+                        <p class="bio">Président du territoire USA. </p>
+                        <hr>
+                        <p class="stats_info">
+                            <u>Dates de voyages</u> {{ user.arrival|date("Y-m-d") }} - {{ user.departure|date("Y-m-d")  }}
+                            <br /><br/>
+                            <u>Destination</u> {{ user.destination.country }}
+                            <br /><br/>
+                            <u>City</u> {{ user.destination.location }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+{% endblock %}
