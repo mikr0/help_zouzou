@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -35,16 +36,66 @@ class User
     private $email;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Destination::class, inversedBy="users")
+     * @ORM\ManyToOne(targetEntity=Destination::class, cascade={"persist"}, inversedBy="users")
      */
     private $destination;
 
     /**
-     * @ORM\OneToMany(targetEntity=Purpose::class, mappedBy="user")
+     * @ORM\Column(type="boolean")
      */
-    private $purpose;
+    private $vehicle;
 
-    public function __construct()
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $accommodation;
+
+
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $support;
+
+
+
+    public function getVehicle(): ?bool
+    {
+        return $this->vehicle;
+    }
+
+    public function setVehicle(bool $vehicle): self
+    {
+        $this->vehicle = $vehicle;
+
+        return $this;
+    }
+
+    public function getAccommodation(): ?bool
+    {
+        return $this->accommodation;
+    }
+
+    public function setAccommodation(bool $accommodation): self
+    {
+        $this->accommodation = $accommodation;
+
+        return $this;
+    }
+
+    public function getSupport(): ?bool
+    {
+        return $this->support;
+    }
+
+    public function setSupport(bool $support): self
+    {
+        $this->support = $support;
+
+        return $this;
+    }
+
+public function __construct()
     {
         $this->purpose = new ArrayCollection();
     }

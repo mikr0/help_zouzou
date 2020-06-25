@@ -4,9 +4,9 @@
 namespace App\Controller;
 
 
+use App\Entity\Purpose;
 use App\Entity\User;
 use App\Form\UserType;
-use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,19 +27,24 @@ class TestController extends AbstractController
     /**
      * @Route("/formulaire", name="formulaire")
      * @param Request $request
-     * @param EntityManager $entityManager
      * @return RedirectResponse|Response
      */
 
     public function formSeekFriends(Request $request)
     {
         $user = new User();
+/*        $purpose = new Purpose();*/
 
         $form = $this->createForm(UserType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-        $user = $form->getData();
+            $user = $form->getData();
+            /*$test = $user->getPurpose();
+            $purpose->setAccommodation($test["accommodation"]);
+            $purpose->setSupport($test["support"]);
+            $purpose->setVehicle($test["vehicle"]);
+            $user->addPurpose($purpose);*/
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
@@ -47,7 +52,7 @@ class TestController extends AbstractController
             return $this->redirectToRoute('index');
         }
 
-            return $this->render('formulaire.html.twig', [
+        return $this->render('formulaire.html.twig', [
             'form' => $form->createView(),
         ]);
     }

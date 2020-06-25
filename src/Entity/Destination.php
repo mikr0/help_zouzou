@@ -49,6 +49,11 @@ class Destination
      */
     private $departure;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $city;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -166,6 +171,18 @@ class Destination
     public function setDeparture(\DateTimeInterface $departure): self
     {
         $this->departure = $departure;
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
 
         return $this;
     }
